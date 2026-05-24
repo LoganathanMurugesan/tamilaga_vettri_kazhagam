@@ -92,7 +92,7 @@ export default function ComplaintFormCompact() {
       {/* Form body */}
       <div className="bg-white px-4 py-3">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-2.5">
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             <div>
               <div className="relative">
                 <User size={12} className="absolute left-2.5 top-1/2 -translate-y-1/2" style={{ color: "#aaa" }} />
@@ -121,7 +121,7 @@ export default function ComplaintFormCompact() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             <div>
               <div className="relative">
                 <MapPin size={12} className="absolute left-2.5 top-1/2 -translate-y-1/2 z-10" style={{ color: "#aaa" }} />
