@@ -154,7 +154,7 @@ export default function HomePage() {
               <div className="relative w-full flex items-end justify-center" style={{ height: "60vh", maxHeight: 540 }}>
                 <Image
                   src="/hero.jpg"
-                  alt="ECR Saravanan and Vijay – TVK"
+                  alt="ECR Saravanan – MLA Shollinganallur TVK"
                   fill
                   className="object-contain object-bottom drop-shadow-xl"
                   priority

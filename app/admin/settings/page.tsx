@@ -24,7 +24,7 @@ export default function AdminSettingsPage() {
             </div>
             <div>
               <label className="form-label">MLA Name</label>
-              <input type="text" className="form-input" defaultValue="Vijay" />
+              <input type="text" className="form-input" defaultValue="ECR Saravanan" />
             </div>
             <div>
               <label className="form-label">Contact Phone</label>

@@ -18,7 +18,7 @@ export const translations = {
     heroTitleAccent: "Our Responsibility",
     heroSubtext:
       "We are committed to building a better, stronger, and more responsive constituency — together, one issue at a time.",
-    leaderName: "Vijay",
+    leaderName: "ECR Saravanan",
     leaderRole: "MLA – Shollinganallur Constituency",
     leaderConstituency: "Tamilaga Vettri Kazhagam",
     leaderQuote:
@@ -141,7 +141,7 @@ export const translations = {
     heroTitleAccent: "எங்கள் பொறுப்பு",
     heroSubtext:
       "ஒவ்வொரு பிரச்சினையையும் தீர்த்து, சிறந்த தொகுதியை உருவாக்க நாங்கள் உறுதிபூண்டுள்ளோம்.",
-    leaderName: "விஜய்",
+    leaderName: "ECR சரவணன்",
     leaderRole: "சட்டமன்ற உறுப்பினர் – சோழிங்கநல்லூர் தொகுதி",
     leaderConstituency: "தமிழக வெற்றி கழகம்",
     leaderQuote:
