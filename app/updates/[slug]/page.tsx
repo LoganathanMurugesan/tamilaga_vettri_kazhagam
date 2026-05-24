@@ -1,14 +1,20 @@
-"use client";
-
 import Link from "next/link";
-import { use } from "react";
 import { ArrowLeft, MapPin, Clock } from "lucide-react";
 import { UPDATES } from "@/lib/mock-data";
 import { StatusBadge } from "@/components/ui/Badge";
 import { formatDate } from "@/lib/utils";
 
-export default function UpdateDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = use(params);
+// Pre-render every known slug at build time (required for static export)
+export function generateStaticParams() {
+  return UPDATES.map((u) => ({ slug: u.slug }));
+}
+
+export default async function UpdateDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
   const update = UPDATES.find((u) => u.slug === slug) ?? UPDATES[0];
 
   return (
@@ -26,30 +32,53 @@ export default function UpdateDetailPage({ params }: { params: Promise<{ slug: s
         <div className="card overflow-hidden">
           <div className="h-64 overflow-hidden bg-gray-100">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={update.image} alt={update.title} className="w-full h-full object-cover" />
+            <img
+              src={update.image}
+              alt={update.title}
+              className="w-full h-full object-cover"
+            />
           </div>
 
           <div className="p-8">
             <div className="flex items-center gap-3 mb-4">
               <StatusBadge status={update.status} />
-              <span className="flex items-center gap-1 text-xs" style={{ color: "#5f5f5f" }}>
+              <span
+                className="flex items-center gap-1 text-xs"
+                style={{ color: "#5f5f5f" }}
+              >
                 <MapPin size={11} /> {update.area}
               </span>
-              <span className="flex items-center gap-1 text-xs" style={{ color: "#5f5f5f" }}>
+              <span
+                className="flex items-center gap-1 text-xs"
+                style={{ color: "#5f5f5f" }}
+              >
                 <Clock size={11} /> {formatDate(update.date)}
               </span>
             </div>
 
-            <h1 className="text-3xl font-black mb-4" style={{ color: "#1d1d1d" }}>
+            <h1
+              className="text-3xl font-black mb-4"
+              style={{ color: "#1d1d1d" }}
+            >
               {update.title}
             </h1>
 
-            <p className="text-base leading-relaxed" style={{ color: "#5f5f5f" }}>
+            <p
+              className="text-base leading-relaxed"
+              style={{ color: "#5f5f5f" }}
+            >
               {update.description}
             </p>
 
-            <p className="text-base leading-relaxed mt-4" style={{ color: "#5f5f5f" }}>
-              This project is part of our ongoing commitment to improving infrastructure and quality of life for all residents of the Shollinganallur constituency. Regular progress updates are published on this page and communicated directly to affected residents via SMS and WhatsApp.
+            <p
+              className="text-base leading-relaxed mt-4"
+              style={{ color: "#5f5f5f" }}
+            >
+              This project is part of our ongoing commitment to improving
+              infrastructure and quality of life for all residents of the
+              Shollinganallur constituency. Regular progress updates are
+              published on this page and communicated directly to affected
+              residents via SMS and WhatsApp.
             </p>
           </div>
         </div>
