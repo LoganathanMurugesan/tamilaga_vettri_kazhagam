@@ -78,7 +78,82 @@ export default function HomePage() {
           }}
         />
 
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
+        {/* ── LEFT deco panel: TVK watermark emblem + dot grid ──
+             Only rendered on 2xl+ (≥1536px) where there is actual side space.
+             Width = exactly the gap between viewport and the 1536px content box. ── */}
+        <div
+          className="absolute left-0 top-0 bottom-0 hidden 2xl:flex flex-col items-center justify-center gap-5 pointer-events-none z-0"
+          style={{ width: "calc((100% - 1536px) / 2)" }}
+        >
+          {/* Faint TVK circle watermark */}
+          <div
+            className="flex flex-col items-center justify-center font-black rounded-full select-none"
+            style={{
+              width: 96, height: 96,
+              border: "2.5px solid rgba(143,13,13,0.10)",
+              color: "rgba(143,13,13,0.09)",
+            }}
+          >
+            <div style={{ fontSize: 20, lineHeight: 1 }}>TVK</div>
+            <div style={{ fontSize: 7, letterSpacing: 2, marginTop: 3 }}>SHOLLINGANALLUR</div>
+          </div>
+
+          {/* Gold accent line */}
+          <div className="rounded-full" style={{ width: 1, height: 48, background: "rgba(243,179,22,0.30)" }} />
+
+          {/* Dot grid */}
+          <div className="flex flex-col gap-1.5 items-center">
+            {Array.from({ length: 7 }).map((_, i) => (
+              <div key={i} className="flex gap-1.5">
+                {Array.from({ length: 3 }).map((_, j) => (
+                  <div key={j} className="w-1 h-1 rounded-full" style={{ background: "rgba(143,13,13,0.10)" }} />
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ── RIGHT deco panel: vertical text + gold line + dot grid ── */}
+        <div
+          className="absolute right-0 top-0 bottom-0 hidden 2xl:flex flex-col items-center justify-center gap-5 pointer-events-none z-0"
+          style={{ width: "calc((100% - 1536px) / 2)" }}
+        >
+          {/* Gold accent line */}
+          <div className="rounded-full" style={{ width: 1, height: 48, background: "rgba(243,179,22,0.30)" }} />
+
+          {/* Rotated party text */}
+          <div
+            className="select-none"
+            style={{
+              writingMode: "vertical-rl",
+              transform: "rotate(180deg)",
+              fontSize: 10,
+              fontWeight: 900,
+              letterSpacing: "0.30em",
+              color: "rgba(143,13,13,0.14)",
+              textTransform: "uppercase",
+              whiteSpace: "nowrap",
+            }}
+          >
+            TVK · Shollinganallur ECR · People First · Always
+          </div>
+
+          {/* Dot grid */}
+          <div className="flex flex-col gap-1.5 items-center">
+            {Array.from({ length: 7 }).map((_, i) => (
+              <div key={i} className="flex gap-1.5">
+                {Array.from({ length: 3 }).map((_, j) => (
+                  <div key={j} className="w-1 h-1 rounded-full" style={{ background: "rgba(143,13,13,0.10)" }} />
+                ))}
+              </div>
+            ))}
+          </div>
+
+          {/* Gold accent line */}
+          <div className="rounded-full" style={{ width: 1, height: 48, background: "rgba(243,179,22,0.30)" }} />
+        </div>
+
+        <div className="relative max-w-screen-2xl mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-12 items-stretch" style={{ minHeight: "54vh" }}>
 
             {/* ── Col A: Headline + Action Buttons (4 cols) ── */}
