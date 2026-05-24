@@ -1,26 +1,204 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-maroon: #8f0d0d;
+  --color-maroon-dark: #6f0808;
+  --color-maroon-light: #a81212;
+  --color-red-accent: #b51217;
+  --color-gold: #f3b316;
+  --color-gold-dark: #d99a0d;
+  --color-gold-light: #fde68a;
+  --color-green: #39a852;
+  --color-green-soft: #eaf7ee;
+  --color-green-dark: #2d8a41;
+  --color-purple: #6f38c5;
+  --color-purple-soft: #f0ebff;
+  --color-blue: #2677d9;
+  --color-orange: #e4a318;
+  --color-surface: #ffffff;
+  --color-surface-soft: #faf7f5;
+  --color-border: #eadfda;
+  --color-text: #1d1d1d;
+  --color-text-muted: #5f5f5f;
+  --shadow-card: 0 8px 24px rgba(80, 30, 20, 0.08);
+  --radius-card: 18px;
+  --radius-button: 12px;
+  --font-sans: 'Inter', 'Poppins', system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #faf7f5;
+    color: #1d1d1d;
+    font-family: 'Inter', 'Poppins', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .card {
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(80, 30, 20, 0.08);
+    border: 1px solid #eadfda;
+  }
+
+  .btn-primary {
+    background: #8f0d0d;
+    color: white;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: #6f0808;
+  }
+
+  .btn-gold {
+    background: #f3b316;
+    color: #1d1d1d;
+    border-radius: 12px;
+    font-weight: 700;
+    transition: background 0.2s;
+  }
+
+  .btn-gold:hover {
+    background: #d99a0d;
+  }
+
+  .btn-green {
+    background: #39a852;
+    color: white;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+
+  .btn-green:hover {
+    background: #2d8a41;
+  }
+
+  .btn-purple {
+    background: #6f38c5;
+    color: white;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+
+  .btn-purple:hover {
+    background: #5a2da0;
+  }
+
+  .badge-resolved {
+    background: #eaf7ee;
+    color: #2d8a41;
+    border: 1px solid #c3e8cf;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 10px;
+  }
+
+  .badge-progress {
+    background: #fff8e0;
+    color: #d99a0d;
+    border: 1px solid #f3d96e;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 10px;
+  }
+
+  .badge-pending {
+    background: #ffeaea;
+    color: #b51217;
+    border: 1px solid #f5c6c6;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 10px;
+  }
+
+  .section-heading {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1d1d1d;
+    letter-spacing: -0.03em;
+  }
+
+  .section-subheading {
+    font-size: 1rem;
+    color: #5f5f5f;
+    margin-top: 0.5rem;
+  }
+
+  .nav-link {
+    color: rgba(255,255,255,0.85);
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: color 0.15s;
+    position: relative;
+    padding-bottom: 2px;
+  }
+
+  .nav-link:hover {
+    color: white;
+  }
+
+  .nav-link.active {
+    color: #f3b316;
+    font-weight: 700;
+  }
+
+  .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #f3b316;
+    border-radius: 2px;
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 0.625rem 0.875rem;
+    border: 1.5px solid #eadfda;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    color: #1d1d1d;
+    background: white;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+
+  .form-input:focus {
+    border-color: #8f0d0d;
+    box-shadow: 0 0 0 3px rgba(143, 13, 13, 0.08);
+  }
+
+  .form-label {
+    display: block;
+    font-size: 0.825rem;
+    font-weight: 600;
+    color: #1d1d1d;
+    margin-bottom: 0.375rem;
+  }
 }
