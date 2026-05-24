@@ -140,7 +140,7 @@ export default function HomePage() {
                 style={{ background: "#fff0f0", color: "#8f0d0d", border: "1px solid #f5c6c6" }}
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                Shollinganallur ECR Constituency
+                Shollinganallur Constituency
               </div>
 
               {/* Split-colour headline */}
